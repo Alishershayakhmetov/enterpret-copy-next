@@ -13,19 +13,9 @@ const DotLottiePlayer: React.FC<DotLottiePlayerProps> = ({
     height: "300px",
   },
 }) => {
-  const [isClient, setIsClient] = useState(false);
-  const [DotLottiePlayer, setDotLottiePlayer] = useState<any>(null);
-
   useEffect(() => {
-    setIsClient(true);
-    import("@aarsteinmedia/dotlottie-player").then((module) => {
-      setDotLottiePlayer(() => module.default);
-    });
+    import("@aarsteinmedia/dotlottie-player");
   }, []);
-
-  if (!isClient || !DotLottiePlayer) {
-    return null; // or a loader or placeholder
-  }
 
   return (
     <dotlottie-player
